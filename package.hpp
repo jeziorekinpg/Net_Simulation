@@ -1,8 +1,8 @@
 #ifndef NET_SIMULATION_PACKAGE_HPP
 #define NET_SIMULATION_PACKAGE_HPP
 
-#include <types.hpp>
 #include <_bsd_types.h>
+#include "types.hpp"
 
 class Package{
 public:
