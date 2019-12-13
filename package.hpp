@@ -5,8 +5,9 @@
 
 class Package{
 public:
-    Package(u_int id) : id_(id) {}
-    Vehicle(const Vehicle&&) = default;
+    Package(const u_int id) : id_(id) {}
+    Package() = default;
+    Package(const Package&&) = default;
     Package& operator=(const Package&&);
     typename ElementID get_id() const {return _id}
 
