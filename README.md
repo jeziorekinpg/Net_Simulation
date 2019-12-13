@@ -1,1 +1,1 @@
-Net_Simulation
+Wstępnie zająłem się implementacją klasy Product. 
