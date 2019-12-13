@@ -7,8 +7,8 @@ class Package{
 public:
     Package(const u_int id) : id_(id) {}
     Package() = default;
-    Package(const Package&&) = default;
-    Package& operator=(const Package&&);
+    Package(Package&&) = default; // Package(const Package&&) = default; wywala blad
+    Package& operator=(const Package&&); //'operator=' is not implemented ??
     typename ElementID get_id() const {return _id}
 
 private:
