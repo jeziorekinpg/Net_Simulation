@@ -1,0 +1,8 @@
+Członkowie grupy 27:
+(1) Bartek Gawęda, 302841
+(2) Konrad Golemo, 302845
+(3) Kamil Jeziorek, 302855
+
+Kierownik grupy: Kamil Jeziorek
+
+URL repozytorium: https://github.com/jeziorekinpg/Net_Simulation
