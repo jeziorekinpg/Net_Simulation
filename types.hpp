@@ -4,5 +4,6 @@
 #include <_bsd_types.h>
 
 using ElementID = u_int;
+using size_type = u_int;
 
 #endif

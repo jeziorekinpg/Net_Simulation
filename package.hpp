@@ -1,7 +1,6 @@
 #ifndef NET_SIMULATION_PACKAGE_HPP
 #define NET_SIMULATION_PACKAGE_HPP
 
-#include <_bsd_types.h>
 #include "types.hpp"
 
 class Package{
@@ -10,7 +9,7 @@ public:
     Package() = default;
     Package(Package&&) = default; // Package(const Package&&) = default; wywala blad
     Package& operator=(const Package&&); //'operator=' is not implemented ??
-    ElementID get_id() const {return id_}
+    ElementID get_id() const {return id_;}
 
 private:
     ElementID id_;
