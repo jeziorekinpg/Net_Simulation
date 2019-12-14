@@ -33,19 +33,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "D:\CLion\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "D:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "D:\CLion\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -E remove -f
+RM = "D:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Net_Sim\Net_Simulation
+CMAKE_SOURCE_DIR = "D:\AGH\Semestr 3\Informatyka2\Net_Simulation"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Net_Sim\Net_Simulation\cmake-build-debug
+CMAKE_BINARY_DIR = "D:\AGH\Semestr 3\Informatyka2\Net_Simulation\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Net_Simulation.dir/depend.make
@@ -58,29 +58,29 @@ include CMakeFiles/Net_Simulation.dir/flags.make
 
 CMakeFiles/Net_Simulation.dir/package.cpp.obj: CMakeFiles/Net_Simulation.dir/flags.make
 CMakeFiles/Net_Simulation.dir/package.cpp.obj: ../package.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Net_Sim\Net_Simulation\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Net_Simulation.dir/package.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Net_Simulation.dir\package.cpp.obj -c D:\Net_Sim\Net_Simulation\package.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\AGH\Semestr 3\Informatyka2\Net_Simulation\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Net_Simulation.dir/package.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Net_Simulation.dir\package.cpp.obj -c "D:\AGH\Semestr 3\Informatyka2\Net_Simulation\package.cpp"
 
 CMakeFiles/Net_Simulation.dir/package.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Net_Simulation.dir/package.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Net_Sim\Net_Simulation\package.cpp > CMakeFiles\Net_Simulation.dir\package.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\AGH\Semestr 3\Informatyka2\Net_Simulation\package.cpp" > CMakeFiles\Net_Simulation.dir\package.cpp.i
 
 CMakeFiles/Net_Simulation.dir/package.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Net_Simulation.dir/package.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Net_Sim\Net_Simulation\package.cpp -o CMakeFiles\Net_Simulation.dir\package.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\AGH\Semestr 3\Informatyka2\Net_Simulation\package.cpp" -o CMakeFiles\Net_Simulation.dir\package.cpp.s
 
 CMakeFiles/Net_Simulation.dir/storage_types.cpp.obj: CMakeFiles/Net_Simulation.dir/flags.make
 CMakeFiles/Net_Simulation.dir/storage_types.cpp.obj: ../storage_types.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Net_Sim\Net_Simulation\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Net_Simulation.dir/storage_types.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Net_Simulation.dir\storage_types.cpp.obj -c D:\Net_Sim\Net_Simulation\storage_types.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\AGH\Semestr 3\Informatyka2\Net_Simulation\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Net_Simulation.dir/storage_types.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Net_Simulation.dir\storage_types.cpp.obj -c "D:\AGH\Semestr 3\Informatyka2\Net_Simulation\storage_types.cpp"
 
 CMakeFiles/Net_Simulation.dir/storage_types.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Net_Simulation.dir/storage_types.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Net_Sim\Net_Simulation\storage_types.cpp > CMakeFiles\Net_Simulation.dir\storage_types.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\AGH\Semestr 3\Informatyka2\Net_Simulation\storage_types.cpp" > CMakeFiles\Net_Simulation.dir\storage_types.cpp.i
 
 CMakeFiles/Net_Simulation.dir/storage_types.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Net_Simulation.dir/storage_types.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Net_Sim\Net_Simulation\storage_types.cpp -o CMakeFiles\Net_Simulation.dir\storage_types.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\AGH\Semestr 3\Informatyka2\Net_Simulation\storage_types.cpp" -o CMakeFiles\Net_Simulation.dir\storage_types.cpp.s
 
 # Object files for target Net_Simulation
 Net_Simulation_OBJECTS = \
@@ -96,7 +96,7 @@ Net_Simulation.exe: CMakeFiles/Net_Simulation.dir/build.make
 Net_Simulation.exe: CMakeFiles/Net_Simulation.dir/linklibs.rsp
 Net_Simulation.exe: CMakeFiles/Net_Simulation.dir/objects1.rsp
 Net_Simulation.exe: CMakeFiles/Net_Simulation.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Net_Sim\Net_Simulation\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Net_Simulation.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\AGH\Semestr 3\Informatyka2\Net_Simulation\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Net_Simulation.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Net_Simulation.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -109,6 +109,6 @@ CMakeFiles/Net_Simulation.dir/clean:
 .PHONY : CMakeFiles/Net_Simulation.dir/clean
 
 CMakeFiles/Net_Simulation.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Net_Sim\Net_Simulation D:\Net_Sim\Net_Simulation D:\Net_Sim\Net_Simulation\cmake-build-debug D:\Net_Sim\Net_Simulation\cmake-build-debug D:\Net_Sim\Net_Simulation\cmake-build-debug\CMakeFiles\Net_Simulation.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "D:\AGH\Semestr 3\Informatyka2\Net_Simulation" "D:\AGH\Semestr 3\Informatyka2\Net_Simulation" "D:\AGH\Semestr 3\Informatyka2\Net_Simulation\cmake-build-debug" "D:\AGH\Semestr 3\Informatyka2\Net_Simulation\cmake-build-debug" "D:\AGH\Semestr 3\Informatyka2\Net_Simulation\cmake-build-debug\CMakeFiles\Net_Simulation.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/Net_Simulation.dir/depend
 

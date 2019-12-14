@@ -1,4 +1,4 @@
-# Install script for directory: D:/Net_Sim/Net_Simulation
+# Install script for directory: D:/AGH/Semestr 3/Informatyka2/Net_Simulation
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/Net_Sim/Net_Simulation/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/AGH/Semestr 3/Informatyka2/Net_Simulation/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
