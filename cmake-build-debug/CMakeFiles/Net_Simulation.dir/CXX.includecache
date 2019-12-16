@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/AGH/Semestr 3/Informatyka2/Net_Simulation/package.cpp
+iostream
+-
+
+D:/AGH/Semestr 3/Informatyka2/Net_Simulation/storage_types.cpp
+

@@ -1,6 +1,7 @@
-#include <iostream>
+#include "package.hpp"
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
-}
+
+std::set<int> freed_IDs;
+std::set<int> assigned_IDs;
+
+// trzeba dodac opcję, żeby kostruktor i destruktor pracował z tymi listami
