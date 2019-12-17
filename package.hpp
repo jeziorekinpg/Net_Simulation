@@ -5,18 +5,24 @@
 #include "types.hpp"
 
 
-class Package{
+class Package {
 public:
-    Package(const ElementID id) : id_(id) {}
-    Package() = default;
-    Package(ElementID&& id) : id_(std::move(id)) {} //Moim zdanie chodziło o to, żeby móc id zawłaszczyć, a nie inny produkt. Package(const Package&&) = default; wywala blad
-    Package& operator=(Package&&) = default; //'operator=' is not implemented ??
-    ElementID get_id() const {return id_;}
+    Package();
+
+    Package(ElementID&& id) : id_(std::move(id)) {}
+
+    ~Package();
+
+    Package& operator=(Package&&) = default;
+
+    ElementID get_id() const { return id_; }
 
 private:
-    ElementID id_;
+    int id_;
+
+    static std::set<ElementID> freed_IDs;
+    static std::set<ElementID> assigned_IDs;
+
 };
 
-extern std::set<int> freed_IDs;
-extern std::set<int> assigned_IDs;
 #endif
