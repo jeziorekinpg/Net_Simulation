@@ -16,7 +16,7 @@ PackageQueue::PackageQueue(const PackageQueueType type) {
     switch (type) {
         case PackageQueueType::FIFO:
                 type_ = type;
-                
+
             break;
 
         case PackageQueueType::LIFO:
