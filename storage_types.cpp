@@ -4,25 +4,35 @@
 
 #include "storage_types.hpp"
 
-const void PackageQueue::push(Package&& package) {
+void PackageQueue::push(Package&& package) {
     list_.emplace_back(std::move(package));
 }
 
-Package&& PackageQueue::pop() {
-
-}
-
-PackageQueue::PackageQueue(const PackageQueueType type) {
-    switch (type) {
-        case PackageQueueType::FIFO:
-                type_ = type;
-
-            break;
-
-        case PackageQueueType::LIFO:
-                type_ = type;
-
-            break;
+Package PackageQueue::pop() {
+    switch (type_) {
+        case PackageQueueType::FIFO: {
+            Package package(std::move(list_.front()));
+            list_.pop_front();
+            return package;
+        }
+        case PackageQueueType::LIFO: {
+            Package package(std::move(list_.back()));
+            list_.pop_back();
+            return package;
+        }
     }
 
 }
+
+const size_type PackageQueue::size() {
+    return(list_.size());
+}
+
+const bool PackageQueue::empty() {
+    return(list_.empty());
+}
+
+const PackageQueueType PackageQueue::get_queue_type() {
+    return(type_);
+}
+

@@ -9,7 +9,7 @@ class Package {
 public:
     Package();
 
-    Package(ElementID&& id) : id_(std::move(id)) {}
+    Package(Package&& pack) : id_(std::move(pack.id_)) {}
 
     ~Package();
 
