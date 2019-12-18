@@ -92,6 +92,9 @@
 		<Unit filename="D:/AGH/Semestr 3/Informatyka2/Net_Simulation/storage_types.hpp">
 			<Option target="Net_Simulation"/>
 		</Unit>
+		<Unit filename="D:/AGH/Semestr 3/Informatyka2/Net_Simulation/test.cpp">
+			<Option target="Net_Simulation"/>
+		</Unit>
 		<Unit filename="D:/AGH/Semestr 3/Informatyka2/Net_Simulation/types.hpp">
 			<Option target="Net_Simulation"/>
 		</Unit>

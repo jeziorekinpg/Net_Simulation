@@ -6,15 +6,27 @@
 
 #IncludeRegexTransform: 
 
-D:/AGH/Semestr 3/Informatyka2/Net_Simulation/package.cpp
-package.hpp
-D:/AGH/Semestr 3/Informatyka2/Net_Simulation/package.hpp
-
 D:/AGH/Semestr 3/Informatyka2/Net_Simulation/package.hpp
 set
 -
 types.hpp
 D:/AGH/Semestr 3/Informatyka2/Net_Simulation/types.hpp
+
+D:/AGH/Semestr 3/Informatyka2/Net_Simulation/storage_types.hpp
+deque
+-
+list
+-
+package.hpp
+D:/AGH/Semestr 3/Informatyka2/Net_Simulation/package.hpp
+
+D:/AGH/Semestr 3/Informatyka2/Net_Simulation/test.cpp
+iostream
+-
+storage_types.hpp
+D:/AGH/Semestr 3/Informatyka2/Net_Simulation/storage_types.hpp
+package.hpp
+D:/AGH/Semestr 3/Informatyka2/Net_Simulation/package.hpp
 
 D:/AGH/Semestr 3/Informatyka2/Net_Simulation/types.hpp
 _bsd_types.h

@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "D:/AGH/Semestr 3/Informatyka2/Net_Simulation/package.cpp" "D:/AGH/Semestr 3/Informatyka2/Net_Simulation/cmake-build-debug/CMakeFiles/Net_Simulation.dir/package.cpp.obj"
   "D:/AGH/Semestr 3/Informatyka2/Net_Simulation/storage_types.cpp" "D:/AGH/Semestr 3/Informatyka2/Net_Simulation/cmake-build-debug/CMakeFiles/Net_Simulation.dir/storage_types.cpp.obj"
+  "D:/AGH/Semestr 3/Informatyka2/Net_Simulation/test.cpp" "D:/AGH/Semestr 3/Informatyka2/Net_Simulation/cmake-build-debug/CMakeFiles/Net_Simulation.dir/test.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
