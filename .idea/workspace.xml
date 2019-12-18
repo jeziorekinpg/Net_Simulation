@@ -33,8 +33,12 @@
   <component name="ProjectId" id="1UwXZRtMwlTANXn9IxwpVpOexes" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< Updated upstream
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
+=======
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
+>>>>>>> Stashed changes
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -65,12 +69,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576268686388</updated>
+<<<<<<< Updated upstream
       <workItem from="1576268687580" duration="14625000" />
       <workItem from="1576361964269" duration="4091000" />
       <workItem from="1576513957801" duration="3265000" />
       <workItem from="1576546509605" duration="2360000" />
       <workItem from="1576582243221" duration="2628000" />
       <workItem from="1576609845742" duration="7754000" />
+=======
+      <workItem from="1576268687580" duration="17638000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
