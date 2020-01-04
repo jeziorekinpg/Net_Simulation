@@ -15,8 +15,13 @@ include_directories(include)
 set(SOURCE_FILES
         src/package.cpp                 # ścieżka do pliku `package.cpp`
         src/storage_types.cpp           # ścieżka do pliku `storage_types.cpp`
-        src/test.cpp                    # ścieżka do pliku 'test.cpp'
         )
 
 # Uwzględnij zawartość zmiennej `SOURCE_FILES` w procesie kompilacji.
 add_executable(NetSimulation ${SOURCE_FILES} main.cpp)
+
+set(SOURCES_FILES_TESTS
+        test/test.cpp
+        )
+
+add_executable(NetSimulation__test ${SOURCE_FILES} ${SOURCES_FILES_TESTS} test/test.cpp)
