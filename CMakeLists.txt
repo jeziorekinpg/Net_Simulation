@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.13)
-# Zdefiniuj projekt o nazwie "NetSim".
-project(NetSim)
+# Zdefiniuj projekt o nazwie "NetSimulation".
+project(NetSimulation)
 
-# Korzystaj ze standardu C++14.
-set(CMAKE_CXX_STANDARD 14)
+# Korzystaj ze standardu C++17.
+set(CMAKE_CXX_STANDARD 17)
 
 # Ustaw flagi kompilacji.
 add_compile_options(-Wall -Wextra -Werror -Wpedantic -pedantic-errors)
@@ -19,4 +19,4 @@ set(SOURCE_FILES
         )
 
 # Uwzględnij zawartość zmiennej `SOURCE_FILES` w procesie kompilacji.
-add_executable(NetSim ${SOURCE_FILES} main.cpp)
+add_executable(NetSimulation ${SOURCE_FILES} main.cpp)
