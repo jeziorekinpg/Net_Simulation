@@ -12,10 +12,10 @@ PackageSender::PackageSender(ReceiverPreferences&& receiver) {
 }
 
 
-ReceiverPreferences::ReceiverPreferences(ProbabilityGenerator probability_generator) {
-    probability_generator_ = probability_generator;
+ReceiverPreferences::ReceiverPreferences(ProbabilityGenerator probability_gen) {
+    probability_generator_ = probability_gen;
 }
 
 ReceiverPreferences::ReceiverPreferences() {
-    probability_generator_ = probability_generator();
+    probability_generator_ = probability_generator;
 }
