@@ -28,8 +28,8 @@ class IPackageReceiver {
 public:
 
     virtual const void receive_package(Package&&) = 0;
-    virtual const t ElementID get_id() = 0;
-};
+;
+};    virtual const ElementID get_id() = 0
 
 class Ramp : public PackageSender{
 public:
