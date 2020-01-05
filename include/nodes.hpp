@@ -5,6 +5,7 @@
 #include "storage_types.hpp"
 #include "types.hpp"
 #include <optional>
+#include <memory>
 
 
 class IPackageReceiver {
@@ -19,39 +20,46 @@ public:
     void add_receiver(IPackageReceiver* r) {};
     void remove_receiver(IPackageReceiver* r) {};
     IPackageReceiver* choose_receiver() {};
-
 };
 
 class PackageSender : public ReceiverPreferences{
 public:
+    ReceiverPreferences receiver_preferences_;
     void send_package() {};
     const std::optional<Package> get_sending_buffer() {};
-private:
-    ReceiverPreferences receiver_preferences_;
 protected:
     void push_back(Package&&) {};
 };
 
 class Storehouse : public IPackageStockpile, IPackageReceiver {
 public:
-    Storehouse(ElementID id, std::unique_ptr<IPackageStockpile> d);
+    Storehouse(ElementID id, std::unique_ptr<IPackageStockpile> d) { id_ = id, d_ = std::move(d); }
+private:
+    ElementID id_;
+    std::unique_ptr<IPackageStockpile> d_;
 };
 
 class Worker : public IPackageReceiver, PackageSender, IPackageQueue {
 public:
-    void Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q);
+    Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q) { id_ = id, pd_ = pd, q_ = std::move(q); }
     void do_work(Time t) {};
-    const TimeOffset get_processing_duration() {};
-    const Time get_package_processing_start_time() {};
-
+    TimeOffset get_processing_duration() const {};
+    Time get_package_processing_start_time() const {};
+private:
+    ElementID id_;
+    TimeOffset pd_;
+    std::unique_ptr<IPackageQueue> q_;
 };
 
 class Ramp : public PackageSender{
 public:
-    void Ramp(ElementID id, TimeOffset di) {};
+    Ramp(ElementID id, TimeOffset di) { id_ = id, di_ = di; }
     void deliver_goods(Time t) {};
-    const TimeOffset get_delivery_interval() {};
-    const ElementID get_id() {};
+    TimeOffset get_delivery_interval() const {};
+    ElementID get_id() const { return id_; }
+private:
+    ElementID id_;
+    TimeOffset di_;
 };
 
 #endif //NET_SIMULATION_NODES_HPP
