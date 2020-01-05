@@ -23,6 +23,7 @@ public:
 
 class ReceiverPreferences {
 public:
+    ReceiverPreferences();
     ReceiverPreferences(ProbabilityGenerator);
     void add_receiver(IPackageReceiver* r) {};
     void remove_receiver(IPackageReceiver* r) {};
