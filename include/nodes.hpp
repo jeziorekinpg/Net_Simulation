@@ -9,6 +9,11 @@
 #include "storage_types.hpp"
 #include <optional>
 
+enum class NodeType{
+    WORKER;
+    STOREHOUSE;
+    RAMP;
+};
 
 class Storehouse : public IPackageStockpile, IPackageReceiver{
 public:
