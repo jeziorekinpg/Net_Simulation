@@ -16,6 +16,7 @@ set(SOURCE_FILES
         src/package.cpp                 # ścieżka do pliku `package.cpp`
         src/storage_types.cpp           # ścieżka do pliku `storage_types.cpp`
         src/nodes.cpp                   # ścieżka do pliku 'nodes.cpp'
+        src/helpers.cpp
         )
 
 # Uwzględnij zawartość zmiennej `SOURCE_FILES` w procesie kompilacji.
