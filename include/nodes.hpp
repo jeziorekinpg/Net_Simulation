@@ -4,8 +4,10 @@
 #include "package.hpp"
 #include "storage_types.hpp"
 #include "types.hpp"
+#include "helpers.hpp"
 #include <optional>
 #include <memory>
+#include <functional>
 
 enum class NodeType {
     WORKER,
@@ -21,14 +23,17 @@ public:
 
 class ReceiverPreferences {
 public:
-    ReceiverPreferences(ProbabilityGenerator());
+    ReceiverPreferences(ProbabilityGenerator);
     void add_receiver(IPackageReceiver* r) {};
     void remove_receiver(IPackageReceiver* r) {};
     IPackageReceiver* choose_receiver() {};
+protected:
+    ProbabilityGenerator probability_generator_;
 };
 
-class PackageSender : public ReceiverPreferences {
+class PackageSender {
 public:
+    PackageSender(ReceiverPreferences&&);
     ReceiverPreferences receiver_preferences_;
     void send_package() {};
 
@@ -59,12 +64,11 @@ private:
 
 class Ramp : public PackageSender{
 public:
-    Ramp(ElementID id, TimeOffset di) {};
+    Ramp(ReceiverPreferences&& unnamed, ElementID id, TimeOffset di);
     void deliver_goods(Time t) {};
     TimeOffset get_delivery_interval() const {};
     ElementID get_id() const { return id_; }
 private:
-    PackageSender sender_;
     ElementID id_;
     TimeOffset di_;
     NodeType type_;

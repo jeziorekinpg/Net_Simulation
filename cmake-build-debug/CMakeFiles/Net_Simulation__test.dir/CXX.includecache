@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+../include/helpers.hpp
+cstdlib
+-
+iostream
+-
+random
+-
+ctime
+-
+
 ../include/nodes.hpp
 package.hpp
 ../include/package.hpp
@@ -13,9 +23,13 @@ storage_types.hpp
 ../include/storage_types.hpp
 types.hpp
 ../include/types.hpp
+helpers.hpp
+../include/helpers.hpp
 optional
 -
 memory
+-
+functional
 -
 
 ../include/package.hpp
@@ -33,6 +47,8 @@ package.hpp
 ../include/package.hpp
 
 ../include/types.hpp
+functional
+-
 
 D:/AGH/Semestr 3/Informatyka2/Net_Simulation/src/nodes.cpp
 nodes.hpp

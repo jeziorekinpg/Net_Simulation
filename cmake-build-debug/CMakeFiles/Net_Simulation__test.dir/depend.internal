@@ -5,6 +5,7 @@ CMakeFiles/Net_Simulation__test.dir/src/helpers.cpp.obj
  ../include/helpers.hpp
  D:/AGH/Semestr 3/Informatyka2/Net_Simulation/src/helpers.cpp
 CMakeFiles/Net_Simulation__test.dir/src/nodes.cpp.obj
+ ../include/helpers.hpp
  ../include/nodes.hpp
  ../include/package.hpp
  ../include/storage_types.hpp
