@@ -46,7 +46,7 @@ public:
 private:
     ReceiverPreferences receiver_preferences_;
 protected:
-    void push_back(Package&&) {};
+    void push_package(Package&&) {};
 };
 
 class ReceiverPreferences {
