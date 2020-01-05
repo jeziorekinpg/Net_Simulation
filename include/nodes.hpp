@@ -17,8 +17,8 @@ enum class NodeType {
 
 class IPackageReceiver {
 public:
-    virtual const void receive_package(Package&&) = 0;
-    virtual const ElementID get_id() = 0;
+    virtual void receive_package(Package&&) const = 0;
+    virtual ElementID get_id() const = 0;
 };
 
 class ReceiverPreferences {

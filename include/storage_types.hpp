@@ -17,9 +17,9 @@ public:
 
     virtual void push(Package&&) = 0;
 
-    virtual const bool empty() = 0;
+    virtual bool empty() const = 0;
 
-    virtual const size_type size() = 0;
+    virtual size_type size() const = 0;
 
     virtual own_iterator begin() = 0;
 
@@ -34,16 +34,16 @@ class IPackageQueue : public IPackageStockpile {
 public:
     virtual Package pop() = 0;
 
-    virtual const PackageQueueType get_queue_type() = 0;
+    virtual PackageQueueType get_queue_type() const = 0;
 };
 
 class PackageQueue : public IPackageQueue {
 public:
     void push(Package&&) override;
 
-    const bool empty() override;
+    bool empty() const override;
 
-    const size_type size() override;
+    size_type size() const override;
 
     own_iterator begin() override { return list_.begin(); }
 
@@ -55,7 +55,7 @@ public:
 
     Package pop() override;
 
-    const PackageQueueType get_queue_type() override;
+    PackageQueueType get_queue_type() const override;
 
     explicit PackageQueue(const PackageQueueType type) : type_(type) {}
 

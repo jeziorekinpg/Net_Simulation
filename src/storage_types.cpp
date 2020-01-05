@@ -21,18 +21,17 @@ Package PackageQueue::pop() {
             return package;
         }
     }
-
 }
 
-const size_type PackageQueue::size() {
+size_type PackageQueue::size() const {
     return(list_.size());
 }
 
-const bool PackageQueue::empty() {
+bool PackageQueue::empty() const {
     return(list_.empty());
 }
 
-const PackageQueueType PackageQueue::get_queue_type() {
+PackageQueueType PackageQueue::get_queue_type() const {
     return(type_);
 }
 
