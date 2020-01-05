@@ -46,6 +46,7 @@ protected:
 class Storehouse : public IPackageStockpile, IPackageReceiver {
 public:
     Storehouse(ElementID id, std::unique_ptr<IPackageStockpile> d) { id_ = id, d_ = std::move(d); }
+    ElementID get_id() const override { return id_};
 private:
     ElementID id_;
     std::unique_ptr<IPackageStockpile> d_;
@@ -54,6 +55,7 @@ private:
 class Worker : public IPackageReceiver, PackageSender, IPackageQueue {
 public:
     Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q) { id_ = id, pd_ = pd, q_ = std::move(q); }
+    ElementID get_id() const override { return id_};
     void do_work(Time t) {};
     TimeOffset get_processing_duration() const {};
     Time get_package_processing_start_time() const {};
@@ -67,7 +69,7 @@ class Ramp : public PackageSender{
 public:
     Ramp(ReceiverPreferences&&, ElementID, TimeOffset);
     void deliver_goods(Time t) {};
-    TimeOffset get_delivery_interval() const {};
+    TimeOffset get_delivery_interval() const { return di_; }
     ElementID get_id() const { return id_; }
 private:
     ElementID id_;
