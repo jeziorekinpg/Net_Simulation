@@ -59,13 +59,15 @@ private:
 
 class Ramp : public PackageSender{
 public:
-    Ramp(ElementID id, TimeOffset di) { id_ = id, di_ = di; }
+    Ramp(ElementID id, TimeOffset di) {};
     void deliver_goods(Time t) {};
     TimeOffset get_delivery_interval() const {};
     ElementID get_id() const { return id_; }
 private:
+    PackageSender sender_;
     ElementID id_;
     TimeOffset di_;
+    NodeType typ_;
 };
 
 #endif //NET_SIMULATION_NODES_HPP
