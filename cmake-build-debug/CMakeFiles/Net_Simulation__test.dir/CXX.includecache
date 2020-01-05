@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/nodes.hpp
+package.hpp
+../include/package.hpp
+storage_types.hpp
+../include/storage_types.hpp
+types.hpp
+../include/types.hpp
+optional
+-
+memory
+-
+
+../include/package.hpp
+set
+-
+types.hpp
+../include/types.hpp
+
+../include/storage_types.hpp
+deque
+-
+list
+-
+package.hpp
+../include/package.hpp
+
+../include/types.hpp
+
+D:/AGH/Semestr 3/Informatyka2/Net_Simulation/src/nodes.cpp
+nodes.hpp
+D:/AGH/Semestr 3/Informatyka2/Net_Simulation/src/nodes.hpp
+

@@ -20,7 +20,7 @@ set(SOURCE_FILES
         )
 
 # Uwzględnij zawartość zmiennej `SOURCE_FILES` w procesie kompilacji.
-add_executable(Net_Simulation ${SOURCE_FILES} main.cpp)
+#add_executable(Net_Simulation ${SOURCE_FILES} main.cpp)
 
 set(SOURCES_FILES_TESTS
         test/test.cpp

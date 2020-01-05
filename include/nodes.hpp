@@ -8,9 +8,9 @@
 #include <memory>
 
 enum class NodeType {
-    WORKER;
-    STOREHOUSE;
-    RAMP;
+    WORKER,
+    STOREHOUSE,
+    RAMP
 };
 
 class IPackageReceiver {
@@ -67,7 +67,7 @@ private:
     PackageSender sender_;
     ElementID id_;
     TimeOffset di_;
-    NodeType typ_;
+    NodeType type_;
 };
 
 #endif //NET_SIMULATION_NODES_HPP
