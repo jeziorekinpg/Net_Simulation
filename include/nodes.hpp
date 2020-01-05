@@ -65,7 +65,7 @@ private:
 
 class Ramp : public PackageSender{
 public:
-    Ramp(ReceiverPreferences&& unnamed, ElementID id, TimeOffset di);
+    Ramp(ReceiverPreferences&&, ElementID, TimeOffset);
     void deliver_goods(Time t) {};
     TimeOffset get_delivery_interval() const {};
     ElementID get_id() const { return id_; }
