@@ -9,18 +9,20 @@ void PackageQueue::push(Package&& package) {
 }
 
 Package PackageQueue::pop() {
+    Package package;
     switch (type_) {
         case PackageQueueType::FIFO: {
-            Package package(std::move(list_.front()));
+            package = std::move(list_.front());
             list_.pop_front();
-            return package;
+            break;
         }
         case PackageQueueType::LIFO: {
-            Package package(std::move(list_.back()));
+            package = std::move(list_.back());
             list_.pop_back();
-            return package;
+            break;
         }
     }
+    return package;
 }
 
 size_type PackageQueue::size() const {
@@ -34,4 +36,3 @@ bool PackageQueue::empty() const {
 PackageQueueType PackageQueue::get_queue_type() const {
     return(type_);
 }
-
