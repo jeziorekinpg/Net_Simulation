@@ -8,6 +8,7 @@
 #include <optional>
 #include <memory>
 #include <functional>
+#include <map>
 
 enum class NodeType {
     WORKER,
@@ -34,6 +35,8 @@ public:
     IPackageReceiver* choose_receiver();
 protected:
     ProbabilityGenerator probability_generator_;
+private:
+    std::map<IPackageReceiver*, double> preferences_t;
 };
 
 class PackageSender {

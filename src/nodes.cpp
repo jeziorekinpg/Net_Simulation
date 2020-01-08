@@ -21,5 +21,13 @@ ReceiverPreferences::ReceiverPreferences() {
 }
 
 void ReceiverPreferences::add_receiver(IPackageReceiver* r) {
+    if(preferences_t.empty()) {
+        preferences_t[r] = 1;
+    }else{
+        for(auto i : preferences_t){
+            preferences_t[i] = 1/preferences_t.size()+1;
+        }
+        preferences_t[r] = 1/preferences_t.size()+1;
 
+    }
 }
