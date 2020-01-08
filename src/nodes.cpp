@@ -19,3 +19,7 @@ ReceiverPreferences::ReceiverPreferences(ProbabilityGenerator probability_gen) {
 ReceiverPreferences::ReceiverPreferences() {
     probability_generator_ = probability_generator;
 }
+
+void ReceiverPreferences::add_receiver(IPackageReceiver* r) {
+
+}

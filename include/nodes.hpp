@@ -29,9 +29,9 @@ class ReceiverPreferences {
 public:
     ReceiverPreferences();
     ReceiverPreferences(ProbabilityGenerator);
-    void add_receiver(IPackageReceiver* r) {};
-    void remove_receiver(IPackageReceiver* r) {};
-    IPackageReceiver* choose_receiver() {};
+    void add_receiver(IPackageReceiver* r);
+    void remove_receiver(IPackageReceiver* r);
+    IPackageReceiver* choose_receiver();
 protected:
     ProbabilityGenerator probability_generator_;
 };
@@ -42,9 +42,9 @@ public:
     ReceiverPreferences receiver_preferences_;
     void send_package() {};
 
-    const std::optional<Package> get_sending_buffer() {};
+    const std::optional<Package> get_sending_buffer();
 protected:
-    void push_package(Package&&) {};
+    void push_package(Package&&);
 };
 
 class Storehouse : public IPackageStockpile, IPackageReceiver {
