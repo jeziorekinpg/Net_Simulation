@@ -19,6 +19,10 @@ class IPackageReceiver {
 public:
     virtual void receive_package(Package&&) const = 0;
     virtual ElementID get_id() const = 0;
+
+    virtual IPackageStockpile::const_iterator begin() const = 0;
+
+    virtual IPackageStockpile::const_iterator end() const = 0;
 };
 
 class ReceiverPreferences {
@@ -46,7 +50,6 @@ protected:
 class Storehouse : public IPackageStockpile, IPackageReceiver {
 public:
     Storehouse(ElementID id, std::unique_ptr<IPackageStockpile> d) { id_ = id, d_ = std::move(d); }
-    ElementID get_id() const override { return id_};
 private:
     ElementID id_;
     std::unique_ptr<IPackageStockpile> d_;
@@ -55,7 +58,6 @@ private:
 class Worker : public IPackageReceiver, PackageSender, IPackageQueue {
 public:
     Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q) { id_ = id, pd_ = pd, q_ = std::move(q); }
-    ElementID get_id() const override { return id_};
     void do_work(Time t) {};
     TimeOffset get_processing_duration() const {};
     Time get_package_processing_start_time() const {};
