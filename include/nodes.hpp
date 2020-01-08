@@ -55,7 +55,7 @@ private:
     std::unique_ptr<IPackageStockpile> d_;
 };
 
-class Worker : public IPackageReceiver, PackageSender, IPackageQueue {
+class Worker : public IPackageReceiver, PackageSender {
 public:
     Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q) { id_ = id, pd_ = pd, q_ = std::move(q); }
     void do_work(Time t) {};
