@@ -16,6 +16,17 @@ enum class NodeType {
     RAMP
 };
 
+class IPackageReceiver {
+public:
+    virtual void receive_package(Package&&) const = 0;
+
+    virtual ElementID get_id() const = 0;
+
+    virtual IPackageStockpile::const_iterator begin() const = 0;
+
+    virtual IPackageStockpile::const_iterator end() const = 0;
+};
+
 class ReceiverPreferences {
     using preferences_t = std::map<IPackageReceiver*, double>;
     using const_iterator = preferences_t::const_iterator;
@@ -53,16 +64,7 @@ private:
     std::optional<Package> buffer_;
 };
 
-class IPackageReceiver {
-public:
-    virtual void receive_package(Package&&) const = 0;
 
-    virtual ElementID get_id() const = 0;
-
-    virtual IPackageStockpile::const_iterator begin() const = 0;
-
-    virtual IPackageStockpile::const_iterator end() const = 0;
-};
 
 class Storehouse : public IPackageStockpile, IPackageReceiver {
 public:
