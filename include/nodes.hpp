@@ -43,6 +43,7 @@ private:
 
 class PackageSender {
 public:
+    PackageSender(PackageSender&&)=default;
     PackageSender(ReceiverPreferences&&);
     ReceiverPreferences receiver_preferences_;
     void send_package() {};
