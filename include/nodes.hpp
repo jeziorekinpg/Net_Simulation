@@ -22,7 +22,11 @@ public:
 
     virtual ElementID get_id() const = 0;
 
+    virtual IPackageStockpile::const_iterator begin() = 0;
+
     virtual IPackageStockpile::const_iterator begin() const = 0;
+
+    virtual IPackageStockpile::const_iterator end() = 0;
 
     virtual IPackageStockpile::const_iterator end() const = 0;
 };
