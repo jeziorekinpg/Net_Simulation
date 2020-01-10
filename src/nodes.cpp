@@ -33,13 +33,6 @@ void ReceiverPreferences::remove_receiver(IPackageReceiver* r) {
     }
 }
 
-// PackageSender
-
-PackageSender::PackageSender(ReceiverPreferences&& receiver) {
-    receiver_preferences_ = std::move(receiver);
-
-}
-
 IPackageReceiver* ReceiverPreferences::choose_receiver() {
     double wylosowane = probability_generator_();
     double suma = 0.0;
@@ -53,6 +46,33 @@ IPackageReceiver* ReceiverPreferences::choose_receiver() {
     }
 
 
+}
+
+// PackageSender
+
+PackageSender::PackageSender(ReceiverPreferences&& receiver) {
+    receiver_preferences_ = std::move(receiver);
+}
+
+void PackageSender::send_package() {
+    if(buffer_.has_value()){
+        IPackageReceiver* receiver = receiver_preferences_.choose_receiver();
+        receiver->receive_package(std::move(buffer_.value()));
+        buffer_.reset();
+    }
+
+}
+
+const std::optional<Package> PackageSender::get_sending_buffer() {
+    return buffer_.value_or(nullptr) ;
+}
+
+void PackageSender::push_package(Package&& to_send) {
+    if(buffer_.has_value()){
+        throw std::invalid_argument("Buffer is already full");
+    }else{
+        buffer_ = std::move(to_send);
+    }
 }
 
 
@@ -74,7 +94,7 @@ Ramp::Ramp(ReceiverPreferences&& receiver, ElementID id, TimeOffset di) : Packag
  * być może spełnimy już warunek 2. ifa i użyjemy metody z PackageSendera, wyczyścimy bufor i czas rozpoczęcia przetwarzania.
  */
 void Worker::do_work(Time t) {
-    if(buffer.has_value() == false) {
+    if(!buffer.has_value()) {
         buffer = std::move(q_);
         st_ = t;
     }

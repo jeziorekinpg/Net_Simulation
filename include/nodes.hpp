@@ -49,6 +49,8 @@ public:
 
 protected:
     void push_package(Package&&);
+private:
+    std::optional<Package> buffer_;
 };
 
 class IPackageReceiver {
