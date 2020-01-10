@@ -50,7 +50,7 @@ private:
 class PackageSender {
 public:
     PackageSender(PackageSender&&)=default;
-    PackageSender(ReceiverPreferences&&);
+    PackageSender(ReceiverPreferences&& receiver);
 
     ReceiverPreferences receiver_preferences_;
 
@@ -77,9 +77,7 @@ private:
 
 class Worker : public IPackageReceiver, PackageSender {
 public:
-    Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q) {
-        id_ = id, pd_ = pd, q_ = std::move(q);
-    }
+    Worker(ElementID, TimeOffset, std::unique_ptr<IPackageQueue>, ReceiverPreferences&&);
     void do_work(Time t);
     TimeOffset get_processing_duration() const { return pd_; }
     Time get_package_processing_start_time() const { return st_; }
@@ -89,6 +87,7 @@ private:
     Time st_;
     TimeOffset pd_;
     std::unique_ptr<IPackageQueue> q_;
+    NodeType type_;
 };
 
 class Ramp : public PackageSender {

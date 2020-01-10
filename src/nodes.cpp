@@ -104,3 +104,9 @@ void Worker::do_work(Time t) {
         st_ = 0;
     }
 }
+
+Worker::Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q, ReceiverPreferences&& receiver): PackageSender(std::move(receiver)) {
+    id_ = id, pd_ = pd, q_ = std::move(q);
+    type_ = NodeType::WORKER;
+
+}
