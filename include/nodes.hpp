@@ -84,7 +84,7 @@ public:
     TimeOffset get_processing_duration() const { return pd_; }
     Time get_package_processing_start_time() const { return st_; }
 private:
-    std::optional<IPackageQueue> buffer;
+    std::optional<Package> buffer;
     ElementID id_;
     Time st_;
     TimeOffset pd_;

@@ -36,16 +36,16 @@ void ReceiverPreferences::remove_receiver(IPackageReceiver* r) {
 IPackageReceiver* ReceiverPreferences::choose_receiver() {
     double wylosowane = probability_generator_();
     double suma = 0.0;
+    IPackageReceiver* to_return = nullptr;
 //TODO sprawdzić poprawnośc tej metody
     for (auto element : preferences) {
         suma += element.second;
         if (suma > wylosowane) {
-            return (element.first);
+            to_return = element.first;
+            break;
         }
-
     }
-
-
+    return(to_return);
 }
 
 // PackageSender
@@ -95,11 +95,11 @@ Ramp::Ramp(ReceiverPreferences&& receiver, ElementID id, TimeOffset di) : Packag
  */
 void Worker::do_work(Time t) {
     if(!buffer.has_value()) {
-        buffer = std::move(q_);
+        buffer = q_->pop();
         st_ = t;
     }
     if(t == st_ + pd_) {
-        push_package(buffer);
+        push_package(std::move(buffer.value()));
         buffer.reset();
         st_ = 0;
     }
