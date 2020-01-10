@@ -64,5 +64,23 @@ Ramp::Ramp(ReceiverPreferences&& receiver, ElementID id, TimeOffset di) : Packag
 
 
 
-
-
+// Implementacja klasy Worker 
+//TODO Sprawdzić, poprawić
+/* Bufor jest zrobiony jako pole klasy jeszcze w .hpp. Tutaj sprawdzam czy bufor jest wolny i jeśli jest, to wpisuje do niego 
+ * produkt z kolejki (tutaj nie wiem czy dobrze rozumiem kolejke i produkt w niej - bo po prostu przypisałem wartość 
+ * z unique_ptr, a pewnie zupełnie o coś innego chodzi. Wraz z przypisaniem produktu, przypisuje czas rozpoczęcia przetwarzania 
+ * (st_ = t). Następnie sprawdzam czy już skończył przetwarzać produkt. Nie skończył, bo w tym takcie dopiero przypisaliśmy 
+ * produkt do bufora i czas startu. Dopiero przy drugim obiegu pierwszy if zostanie pominięty, bo bufor będzie już zajęty i 
+ * być może spełnimy już warunek 2. ifa i użyjemy metody z PackageSendera, wyczyścimy bufor i czas rozpoczęcia przetwarzania.
+ */
+void Worker::do_work(Time t) {
+    if(buffer.has_value() == false) {
+        buffer = std::move(q_);
+        st_ = t;
+    }
+    if(t == st_ + pd_) {
+        push_package(buffer);
+        buffer.reset();
+        st_ = 0;
+    }
+}
