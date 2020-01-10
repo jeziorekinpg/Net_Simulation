@@ -92,18 +92,18 @@ private:
 
 class Ramp : public PackageSender {
 public:
-    Ramp(ReceiverPreferences&&, ElementID, TimeOffset);
+  Ramp(ReceiverPreferences&&, ElementID, TimeOffset);
 
-    void deliver_goods(Time t) {};
+  void deliver_goods(Time t);
 
-    TimeOffset get_delivery_interval() const { return di_; }
+  TimeOffset get_delivery_interval() const { return di_; }
 
-    ElementID get_id() const { return id_; }
+  ElementID get_id() const { return id_; }
 
 private:
-    ElementID id_;
-    TimeOffset di_;
-    NodeType type_;
+  ElementID id_;
+  TimeOffset di_;
+  NodeType type_;
 };
 
 #endif //NET_SIMULATION_NODES_HPP
