@@ -83,6 +83,13 @@ Ramp::Ramp(ReceiverPreferences&& receiver, ElementID id, TimeOffset di) : Packag
 }
 
 
+void Ramp::deliver_goods(Time t) {
+  if ((t == 1) || (t % Ramp::di_ == 1)) {
+    PackageSender::push_package(new Package());
+  }
+}
+
+
 
 // Implementacja klasy Worker 
 //TODO Sprawdzić, poprawić
