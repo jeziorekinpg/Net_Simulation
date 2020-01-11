@@ -45,17 +45,18 @@ IPackageReceiver* ReceiverPreferences::choose_receiver() {
             break;
         }
     }
-    return(to_return);
+    return (to_return);
 }
 
 // PackageSender
 
 PackageSender::PackageSender(ReceiverPreferences&& receiver) {
     receiver_preferences_ = std::move(receiver);
+    buffer_ = std::nullopt;
 }
 
 void PackageSender::send_package() {
-    if(buffer_.has_value()){
+    if (buffer_.has_value()) {
         IPackageReceiver* receiver = receiver_preferences_.choose_receiver();
         receiver->receive_package(std::move(buffer_.value()));
         buffer_.reset();
@@ -64,13 +65,14 @@ void PackageSender::send_package() {
 }
 
 const std::optional<Package> PackageSender::get_sending_buffer() {
-    return buffer_.value_or(nullptr) ;
+    return (buffer_.value_or(std::nullopt));
+
 }
 
 void PackageSender::push_package(Package&& to_send) {
-    if(buffer_.has_value()){
+    if (buffer_.has_value()) {
         throw std::invalid_argument("Buffer is already full");
-    }else{
+    } else {
         buffer_ = std::move(to_send);
     }
 }
@@ -84,9 +86,9 @@ Ramp::Ramp(ReceiverPreferences&& receiver, ElementID id, TimeOffset di) : Packag
 
 
 void Ramp::deliver_goods(Time t) {
-  if ((t == 1) || (t % Ramp::di_ == 1)) {
-    PackageSender::push_package(Package());
-  }
+    if ((t == 1) || (t % Ramp::di_ == 1)) {
+        PackageSender::push_package(Package());
+    }
 }
 
 
@@ -101,18 +103,19 @@ void Ramp::deliver_goods(Time t) {
  * być może spełnimy już warunek 2. ifa i użyjemy metody z PackageSendera, wyczyścimy bufor i czas rozpoczęcia przetwarzania.
  */
 void Worker::do_work(Time t) {
-    if(!buffer.has_value()) {
+    if (!buffer.has_value()) {
         buffer = q_->pop();
         st_ = t;
     }
-    if(t == st_ + pd_) {
+    if (t == st_ + pd_) {
         push_package(std::move(buffer.value()));
         buffer.reset();
         st_ = 0;
     }
 }
 
-Worker::Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q, ReceiverPreferences&& receiver): PackageSender(std::move(receiver)) {
+Worker::Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q, ReceiverPreferences&& receiver)
+        : PackageSender(std::move(receiver)) {
     id_ = id, pd_ = pd, q_ = std::move(q);
     type_ = NodeType::WORKER;
 
