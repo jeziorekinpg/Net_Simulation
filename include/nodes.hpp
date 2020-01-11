@@ -58,6 +58,8 @@ class PackageSender {
 public:
     PackageSender(PackageSender &&) = default;
 
+    PackageSender();
+
     explicit PackageSender(ReceiverPreferences &&receiver);
 
     ReceiverPreferences receiver_preferences_;
@@ -98,7 +100,7 @@ private:
     NodeType type_;
 };
 
-class Worker : public IPackageReceiver, PackageSender {
+class Worker : public IPackageReceiver, public PackageSender {
 public:
     Worker(ElementID, TimeOffset, std::unique_ptr<IPackageQueue>, ReceiverPreferences &&);
     Worker(ElementID, TimeOffset, std::unique_ptr<IPackageQueue>);

@@ -79,6 +79,11 @@ void PackageSender::push_package(Package&& to_send) {
     }
 }
 
+PackageSender::PackageSender() {
+    receiver_preferences_ = ReceiverPreferences();
+    buffer_ = std::nullopt;
+}
+
 
 Ramp::Ramp(ElementID id, TimeOffset di, ReceiverPreferences&& receiver) : PackageSender(std::move(receiver)) {
     id_ = id;
