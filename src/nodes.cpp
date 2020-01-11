@@ -113,6 +113,11 @@ Worker::Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q, Re
 
 }
 
+Worker::Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q) : PackageSender(ReceiverPreferences()){
+    id_ = id, pd_ = pd, q_ = std::move(q);
+    type_ = NodeType::WORKER;
+}
+
 Storehouse::Storehouse(ElementID id, std::unique_ptr<IPackageStockpile> d = std::make_unique<PackageQueue>(PackageQueue(PackageQueueType::FIFO))) {
   id_ = id,
   d_ = std::move(d);

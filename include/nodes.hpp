@@ -101,6 +101,7 @@ private:
 class Worker : public IPackageReceiver, PackageSender {
 public:
     Worker(ElementID, TimeOffset, std::unique_ptr<IPackageQueue>, ReceiverPreferences &&);
+    Worker(ElementID, TimeOffset, std::unique_ptr<IPackageQueue>);
 
     void do_work(Time t);
 
