@@ -18,9 +18,9 @@ void ReceiverPreferences::add_receiver(IPackageReceiver* r) {
         preferences[r] = 1;
     } else {
         for (auto& element : preferences) {
-            element.second = 1.0 / preferences.size() + 1;
+            element.second = 1.0 / (preferences.size() + 1);
         }
-        preferences[r] = 1.0 / preferences.size() + 1;
+        preferences[r] = 1.0 / (preferences.size() + 1);
     }
 }
 
@@ -112,7 +112,7 @@ void Worker::do_work(Time t) {
         st_ = t;
     }
     if (t == st_ + pd_) {
-        push_package(std::move(buffer.value()));
+        PackageSender::push_package(std::move(buffer.value()));
         buffer.reset();
         st_ = 0;
     }
@@ -128,6 +128,7 @@ Worker::Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q, Re
 Worker::Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q) : PackageSender(ReceiverPreferences()){
     id_ = id, pd_ = pd, q_ = std::move(q);
     type_ = NodeType::WORKER;
+    buffer = std::nullopt;
 }
 
 Storehouse::Storehouse(ElementID id, std::unique_ptr<IPackageStockpile> d = std::make_unique<PackageQueue>(PackageQueue(PackageQueueType::FIFO))) {
