@@ -120,3 +120,13 @@ Worker::Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q, Re
     type_ = NodeType::WORKER;
 
 }
+
+//Ponieważ większości użytkowników klasy Storehouse nie interesuje to, w jaki sposób dokładnie magazyn przechowuje półprodukty, 
+//w jej konstruktorze zdefiniuj odpowiedni argument domyślny dla parametru typu std::unique_ptr<IPackageStockpile> 
+//(stwórz inteligentny wskaźnik na nowy obiekt typu PackageQueue; nie ma znaczenia, czy będzie to kolejka FIFO, czy LIFO).
+//Jak stworzyć argument domyślny jako nowy obiekt typy PackageQueue???
+Storehouse::Storehouse(ElementID id, std::unique_ptr<IPackageStockpile> d = std::move(PackageQueue(PackageQueueType::FIFO))) {
+  id_ = id,
+  d_ = std::move(d);
+  type_ = NodeType::STOREHOUSE;
+}
