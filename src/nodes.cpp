@@ -111,7 +111,7 @@ void Worker::do_work(Time t) {
         buffer = q_->pop();
         st_ = t;
     }
-    if (t == st_ + pd_) {
+    if (t == st_ + pd_ - 1) {
         PackageSender::push_package(std::move(buffer.value()));
         buffer.reset();
         st_ = 0;
