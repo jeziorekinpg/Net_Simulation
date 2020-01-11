@@ -33,7 +33,7 @@ public:
 
     ~Package();
 
-    ElementID get_id() const { return id_; }
+    [[nodiscard]] ElementID get_id() const { return id_; }
 
 private:
     static const ElementID BLANK_ID = -1;
@@ -54,4 +54,5 @@ private:
 };
 
 #endif //NET_SIMULATION_PACKAGE_HPP
+
 
