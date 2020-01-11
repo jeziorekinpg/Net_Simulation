@@ -15,7 +15,7 @@ void ReceiverPreferences::add_receiver(IPackageReceiver* r) {
     if (preferences.empty()) {
         preferences[r] = 1;
     } else {
-        for (auto element : preferences) {
+        for (auto& element : preferences) {
             element.second = 1 / preferences.size() + 1;
         }
         preferences[r] = 1 / preferences.size() + 1;
@@ -25,7 +25,7 @@ void ReceiverPreferences::add_receiver(IPackageReceiver* r) {
 void ReceiverPreferences::remove_receiver(IPackageReceiver* r) {
     if (preferences.find(r) != preferences.end()) {
         preferences.erase(r);
-        for (auto element : preferences) {
+        for (auto& element : preferences) {
             element.second = 1 / preferences.size();
         }
     } else {
@@ -38,7 +38,7 @@ IPackageReceiver* ReceiverPreferences::choose_receiver() {
     double suma = 0.0;
     IPackageReceiver* to_return = nullptr;
 //TODO sprawdzić poprawnośc tej metody
-    for (auto element : preferences) {
+    for (auto& element : preferences) {
         suma += element.second;
         if (suma > wylosowane) {
             to_return = element.first;
