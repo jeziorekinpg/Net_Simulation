@@ -65,8 +65,13 @@ void PackageSender::send_package() {
 }
 
 const std::optional<Package> PackageSender::get_sending_buffer() {
-    return (buffer_.value_or(std::nullopt));
+    std::optional<Package> xyz = std::nullopt;
+    if(buffer_.has_value()){
+        xyz = std::move(buffer_.value());
+    }
+    return (xyz);
 
+    //return(buffer_.value_or(std::nullopt));
 }
 
 void PackageSender::push_package(Package&& to_send) {
