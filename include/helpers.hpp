@@ -1,14 +1,17 @@
-#ifndef NET_SIMULATION_HELPERS_HPP
-#define NET_SIMULATION_HELPERS_HPP
+#ifndef HELPERS_HPP_
+#define HELPERS_HPP_
 
-#include <cstdlib>
-#include <iostream>
+#include <functional>
 #include <random>
-#include <ctime>
 
-std::random_device rd;
-std::mt19937 rng(rd());
+#include "types.hpp"
 
-double probability_generator() { return std::generate_canonical<double, 10>(rng); }
+extern std::random_device rd;
+extern std::mt19937 rng;
 
-#endif //NET_SIMULATION_HELPERS_HPP
+extern double default_probability_generator();
+
+extern ProbabilityGenerator probability_generator;
+
+#endif /* HELPERS_HPP_ */
+
