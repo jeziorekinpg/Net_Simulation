@@ -132,7 +132,9 @@ private:
 
 class Ramp : public PackageSender {
 public:
-    Ramp(ReceiverPreferences &&, ElementID, TimeOffset);
+    Ramp(ElementID, TimeOffset, ReceiverPreferences &&);
+
+    Ramp(ElementID, TimeOffset);
 
     void deliver_goods(Time t);
 

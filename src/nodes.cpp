@@ -80,18 +80,25 @@ void PackageSender::push_package(Package&& to_send) {
 }
 
 
-Ramp::Ramp(ReceiverPreferences&& receiver, ElementID id, TimeOffset di) : PackageSender(std::move(receiver)) {
+Ramp::Ramp(ElementID id, TimeOffset di, ReceiverPreferences&& receiver) : PackageSender(std::move(receiver)) {
     id_ = id;
     di_ = di;
     type_ = NodeType::RAMP;
 }
 
+Ramp::Ramp(ElementID id, TimeOffset di) : PackageSender(ReceiverPreferences()) {
+    id_ = id;
+    di_ = di;
+    type_ = NodeType::RAMP;
+}
 
 void Ramp::deliver_goods(Time t) {
     if ((t == 1) || (t % Ramp::di_ == 1)) {
         PackageSender::push_package(Package());
     }
 }
+
+
 
 
 void Worker::do_work(Time t) {
