@@ -69,14 +69,14 @@ private:
 };
 
 
-
 class Storehouse : public IPackageStockpile, IPackageReceiver {
 public:
-    Storehouse(ElementID id, std::unique_ptr<IPackageStockpile> d) { id_ = id, d_ = std::move(d); }
+    Storehouse(ElementID id, std::unique_ptr<IPackageStockpile> d);
 
 private:
     ElementID id_;
     std::unique_ptr<IPackageStockpile> d_;
+    NodeType type_;
 };
 
 class Worker : public IPackageReceiver, PackageSender {
