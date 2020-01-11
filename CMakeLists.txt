@@ -17,7 +17,6 @@ set(SOURCE_FILES
         #src/factory_package.cpp
         )
 
-add_executable(NetSim__debug ${SOURCE_FILES} main.cpp)
 
 set(SOURCES_FILES_TESTS
         test/test_package.cpp
@@ -37,4 +36,3 @@ target_include_directories(test_wezly PUBLIC
 add_subdirectory(googletest-master googletest-master)
 
 target_link_libraries(test_wezly gmock)
-
