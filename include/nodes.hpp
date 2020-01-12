@@ -44,7 +44,7 @@ public:
 
     void remove_receiver(IPackageReceiver *r);
 
-    preferences_t get_preferences() {return preferences;}
+    const preferences_t& get_preferences() const { return preferences; }
 
     IPackageReceiver *choose_receiver();
 
