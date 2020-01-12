@@ -80,13 +80,13 @@ class Storehouse : public IPackageReceiver {
 public:
     Storehouse(ElementID id, std::unique_ptr<IPackageStockpile> d);
 
-    [[nodiscard]] IPackageStockpile::const_iterator begin() const override { return d_->cbegin(); }
+    [[nodiscard]] IPackageStockpile::const_iterator begin() const override { return d_->begin(); }
 
-    [[nodiscard]] IPackageStockpile::const_iterator cbegin() const override { return d_->begin(); }
+    [[nodiscard]] IPackageStockpile::const_iterator cbegin() const override { return d_->cbegin(); }
 
-    [[nodiscard]] IPackageStockpile::const_iterator end() const override { return d_->cend(); }
+    [[nodiscard]] IPackageStockpile::const_iterator end() const override { return d_->end(); }
 
-    [[nodiscard]] IPackageStockpile::const_iterator cend() const override { return d_->end(); }
+    [[nodiscard]] IPackageStockpile::const_iterator cend() const override { return d_->cend(); }
 
     //[[nodiscard]] ReceiverType get_receiver_type() const override { return ReceiverType::STOREHOUSE; }
 
@@ -107,13 +107,13 @@ public:
 
     void do_work(Time t);
 
-    [[nodiscard]] IPackageStockpile::const_iterator begin() const override { return q_->cbegin(); }
+    [[nodiscard]] IPackageStockpile::const_iterator begin() const override { return q_->begin(); }
 
-    [[nodiscard]] IPackageStockpile::const_iterator cbegin() const override { return q_->begin(); }
+    [[nodiscard]] IPackageStockpile::const_iterator cbegin() const override { return q_->cbegin(); }
 
-    [[nodiscard]] IPackageStockpile::const_iterator end() const override { return q_->cend(); }
+    [[nodiscard]] IPackageStockpile::const_iterator end() const override { return q_->end(); }
 
-    [[nodiscard]] IPackageStockpile::const_iterator cend() const override { return q_->end(); }
+    [[nodiscard]] IPackageStockpile::const_iterator cend() const override { return q_->cend(); }
 
     [[nodiscard]] TimeOffset get_processing_duration() const { return pd_; }
 
