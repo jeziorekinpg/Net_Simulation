@@ -47,22 +47,22 @@ private:
 
 class Factory{
 public:
-  void add_ramp(Ramp && r) {list_ramp.push_back(r);};
-  void remove_ramp(ElementID id) {list_ramp.erase(find_ramp_by_id(id))};
+  void add_ramp(Ramp && r) {list_ramp.add(r)};
+  void remove_ramp(ElementID id) {list_ramp.remove_by_id(id)};
   NodeCollection<Ramp>::iterator find_ramp_by_id(ElementID id) {return list_ramp.find_by_id(id)};
   NodeCollection<Ramp>::const_iterator find_ramp_by_id(ElementID id) const {return list_ramp.find_by_id(id)};
   NodeCollection<Ramp>::const_iterator ramp_cbegin() const {return list_ramp.cbegin()};
   NodeCollection<Ramp>::const_iterator ramp_cend() const {return list_ramp.cend();};
 
-  void add_worker(Worker && w) {list_worker.push_back(w);};
-  void remove_worker(ElementID id) {list_worker.erase(find_worker_by_id(id))};
+  void add_worker(Worker && w) {list_worker.add(w)};
+  void remove_worker(ElementID id) {list_worker.remove_by_id(id)};
   NodeCollection<Worker>::iterator find_worker_by_id(ElementID id) {return list_worker.find_by_id(id);};
   NodeCollection<Worker>::const_iterator find_worker_by_id(ElementID id) const {return list_worker.find_by_id(id)};
   NodeCollection<Worker>::const_iterator worker_cbegin() {return list_worker.cbegin();};
   NodeCollection<Worker>::const_iterator worker_cend() {return list_worker.cend();};
 
-  void add_storehouse(Storehouse && s) {list_storehouse.push_back(s);};
-  void remove_storehouse(ElementID id) {list_storehouse.erase(find_storehouse_by_id(id))};
+  void add_storehouse(Storehouse && s) {list_storehouse.add(s)};
+  void remove_storehouse(ElementID id) {list_storehouse.remove_by_id(id)};
   NodeCollection<Storehouse>::iterator find_storehouse_by_id(ElementID id) { return list_storehouse.find_by_id(id)};
   NodeCollection<Storehouse>::const_iterator find_storehouse_by_id(ElementID id) const {return list_storehouse.find_by_id(id)};
   NodeCollection<Storehouse>::const_iterator storehouse_cbegin() {list_storehouse.cbegin();};
