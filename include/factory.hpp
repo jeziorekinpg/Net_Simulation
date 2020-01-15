@@ -22,6 +22,13 @@ class NodeCollection<Node> {
   using const_iterator = typename container_t::const_iterator;
 
 public:
+  iterator begin() {return container_t.begin();};
+  iterator end() {return container_t.end();};
+  iterator cbegin() const {return container_t.cbegin();};
+  iterator cend() const {return container_t.cend();};
+  const_iterator cbegin() const {return container_t.cbegin();};
+  const_iterator cend() const {return container_t.cend();};
+  
   NodeCollection<Node>::iterator find_by_id(ElementID id_) {
       auto it = std::find_if(container.begin(), container.end(), [id_](const aout &elem) { return (elem.get_id() == id_); })
       return it;
