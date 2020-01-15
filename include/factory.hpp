@@ -65,13 +65,13 @@ public:
   void remove_storehouse(ElementID id) {list_storehouse.erase(find_storehouse_by_id(id))};
   NodeCollection<Storehouse>::iterator find_storehouse_by_id(ElementID id) { return list_storehouse.find_by_id(id)};
   NodeCollection<Storehouse>::const_iterator find_storehouse_by_id(ElementID id) const {return list_storehouse.find_by_id(id)};
-  NodeCollection<Storehouse>::const_iterator storehouse_cbegin() {return list_storehouse.cbegin();};
+  NodeCollection<Storehouse>::const_iterator storehouse_cbegin() {list_storehouse.cbegin();};
   NodeCollection<Storehouse>::const_iterator storehouse_cend() {return list_storehouse.cend();};
 
   bool is_consistent() const;
-  void do_deliveries(Time);
-  void do_package_passing();
-  void do_work(Time);
+  void do_deliveries(Time t) {Ramp::deliver_goods(t)};
+  void do_package_passing() {PackageSender::send_package()};
+  void do_work(Time t) {Worker::do_work(t)};
 
 private:
   void remove_receiver(NodeCollection<Node> &collection, ElementID id);
