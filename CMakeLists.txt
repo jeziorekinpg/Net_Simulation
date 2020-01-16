@@ -14,13 +14,13 @@ set(SOURCE_FILES
         src/storage_types.cpp
         src/nodes.cpp
         src/helpers.cpp
-        #src/factory_package.cpp
+        src/factory.cpp
         )
 
 
 set(SOURCES_FILES_TESTS
-        test/test_package.cpp
-        test/test_storage_types.cpp
+        #test/test_package.cpp
+        #test/test_storage_types.cpp
         test/test_nodes.cpp
         )
 
