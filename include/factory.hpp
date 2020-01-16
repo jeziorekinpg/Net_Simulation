@@ -13,37 +13,38 @@ enum class ReceiverType {
   STOREHOUSE
 };
 
-bool has_reachable_storehouse(const PackageSender *, std::map<const PackageSender *, NodeColor> &) const;
+//bool has_reachable_storehouse(const PackageSender *, std::map<const PackageSender *, NodeColor> &) const;
 
-class NodeCollection<Node> {
+template <typename Node>
+class NodeCollection {
 
   using container_t = typename std::vector<Node>;
   using iterator = typename container_t::iterator;
   using const_iterator = typename container_t::const_iterator;
 
 public:
-  iterator begin() {return container_t.begin();};
-  iterator end() {return container_t.end();};
-  iterator cbegin() const {return container_t.cbegin();};
-  iterator cend() const {return container_t.cend();};
-  const_iterator cbegin() const {return container_t.cbegin();};
-  const_iterator cend() const {return container_t.cend();};
+  iterator begin() const {return container.begin();};
+  iterator end() const {return container.end();};
+  iterator cbegin() const {return container.cbegin();};
+  iterator cend() const {return container.cend();};
+  const_iterator cbegin() const {return container.cbegin();};
+  const_iterator cend() const {return container.cend();};
 
   typename NodeCollection<Node>::iterator find_by_id(ElementID id_) {
-      auto it = std::find_if(container.begin(), container.end(), [id_](const aout &elem) { return (elem.get_id() == id_); })
+      auto it = std::find_if(container.begin(), container.end(), [id_](const auto &elem) { return (elem.get_id() == id_); });
       return it;
   }
   typename NodeCollection<Node>::const_iterator find_by_id(ElementID id_) const {
-      auto it = std::find_if(container.begin(), container.end(), [id_](const aout& elem) {return (elem.get_id() == id_) ;})
+      auto it = std::find_if(container.begin(), container.end(), [id_](const auto& elem) {return (elem.get_id() == id_) ;});
       return it;
   }
 
-  void add(Node &node){container.push_back(std::move(node))};
-  void remove_by_id(ElementID id_){container.erase(find_by_id(id_))};
+  typename void add(Node &node){container.push_back(std::move(node))};
+  void remove_by_id(ElementID id_){container.erase(find_by_id(id_));};
 
 private:
   container_t container;
-}
+};
 
 class Factory{
 public:
@@ -74,11 +75,12 @@ public:
   void do_work(Time t) {Worker::do_work(t)};
 
 private:
-  void remove_receiver(NodeCollection<Node> &collection, ElementID id);
-  NodeCollection<Worker> list_worker;
-  NodeCollection<Ramp> list_ramp;
-  NodeCollection<Storehouse> list_storehouse;
+  //void remove_receiver(NodeCollection<Node>& , ElementID);
+  typename NodeCollection<Worker> list_worker;
+  typename NodeCollection<Ramp> list_ramp;
+  typename NodeCollection<Storehouse> list_storehouse;
 };
 
 
 #endif // NET_SIMULATION_FACTORY_HPP
+
