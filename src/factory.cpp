@@ -45,3 +45,26 @@ void Factory::do_package_passing() {
     iter->send_package();
   }
 }
+=======
+    for(auto iter = list_ramp.begin(); iter <= list_ramp.end(); iter++){
+        iter->deliver_goods(t);
+    }
+}
+
+void Factory::do_work(Time t) {
+    for(auto iter = list_worker.begin(); iter <= list_worker.end(); iter++){
+        iter->do_work(t);
+    }
+}
+
+void Factory::do_package_passing() {
+    for(auto iter = list_ramp.begin(); iter <= list_ramp.end(); iter++){
+        iter->send_package();
+    }
+    for(auto iter = list_worker.begin(); iter <= list_worker.end(); iter++){
+        iter->send_package();
+    }
+}
+
+
+>>>>>>> Stashed changes
