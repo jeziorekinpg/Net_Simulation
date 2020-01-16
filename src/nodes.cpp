@@ -49,12 +49,12 @@ IPackageReceiver* ReceiverPreferences::choose_receiver() {
 }
 
 // PackageSender
-
+/*
 PackageSender::PackageSender(ReceiverPreferences&& receiver) {
     receiver_preferences_ = std::move(receiver);
     buffer_ = std::nullopt;
 }
-
+*/
 void PackageSender::send_package() {
     if (buffer_.has_value()) {
         IPackageReceiver* receiver = receiver_preferences_.choose_receiver();
@@ -82,14 +82,14 @@ PackageSender::PackageSender() {
     buffer_ = std::nullopt;
 }
 
-
+/*
 Ramp::Ramp(ElementID id, TimeOffset di, ReceiverPreferences&& receiver) : PackageSender(std::move(receiver)) {
     id_ = id;
     di_ = di;
     type_ = NodeType::RAMP;
 }
-
-Ramp::Ramp(ElementID id, TimeOffset di) : PackageSender(ReceiverPreferences()) {
+*/
+Ramp::Ramp(ElementID id, TimeOffset di) : PackageSender() {
     id_ = id;
     di_ = di;
     type_ = NodeType::RAMP;
@@ -115,15 +115,15 @@ void Worker::do_work(Time t) {
         st_ = 0;
     }
 }
-
+/*
 Worker::Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q, ReceiverPreferences&& receiver)
         : PackageSender(std::move(receiver)) {
     id_ = id, pd_ = pd, q_ = std::move(q);
     type_ = NodeType::WORKER;
 
 }
-
-Worker::Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q) : PackageSender(ReceiverPreferences()){
+*/
+Worker::Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q) : PackageSender(){
     id_ = id, pd_ = pd, q_ = std::move(q);
     type_ = NodeType::WORKER;
     buffer = std::nullopt;

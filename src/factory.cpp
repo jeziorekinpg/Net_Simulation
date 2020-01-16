@@ -50,7 +50,8 @@ void Factory::do_package_passing() {
 
 template <typename Node>
 void Factory::remove_receiver(NodeCollection<Node>& removing_from, ElementID id) {
-    std::vector<Node>& to_remove = removing_from.find_by_id(id);
+//TODO ten glupi typ
+     to_remove = *(removing_from.find_by_id(id)); // w testach tak kłeczek używa tej funkcji
     if(to_remove != removing_from.end()) {
         for (auto iter = list_ramp.begin(); iter <= list_ramp.end(); iter++) {
             iter->receiver_preferences_.remove_receiver(to_remove);

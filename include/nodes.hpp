@@ -60,7 +60,7 @@ public:
 
     PackageSender();
 
-    explicit PackageSender(ReceiverPreferences &&receiver);
+    //explicit PackageSender(ReceiverPreferences &&receiver);
 
     ReceiverPreferences receiver_preferences_;
 
@@ -102,7 +102,7 @@ private:
 
 class Worker : public IPackageReceiver, public PackageSender {
 public:
-    Worker(ElementID, TimeOffset, std::unique_ptr<IPackageQueue>, ReceiverPreferences &&);
+    //Worker(ElementID, TimeOffset, std::unique_ptr<IPackageQueue>, ReceiverPreferences &&);
     Worker(ElementID, TimeOffset, std::unique_ptr<IPackageQueue>);
 
     void do_work(Time t);
@@ -134,7 +134,7 @@ private:
 
 class Ramp : public PackageSender {
 public:
-    Ramp(ElementID, TimeOffset, ReceiverPreferences &&);
+    //Ramp(ElementID, TimeOffset, ReceiverPreferences &&);
 
     Ramp(ElementID, TimeOffset);
 
