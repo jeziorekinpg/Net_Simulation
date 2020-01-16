@@ -30,8 +30,6 @@ void ReceiverPreferences::remove_receiver(IPackageReceiver* r) {
         for (auto& element : preferences) {
             element.second = 1.0 / preferences.size();
         }
-    } else {
-        throw std::invalid_argument("There is no such receiver");
     }
 }
 
