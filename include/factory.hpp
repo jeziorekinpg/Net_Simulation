@@ -69,9 +69,10 @@ public:
   [[nodiscard]] NodeCollection<Storehouse>::const_iterator storehouse_cend() const {return list_storehouse.cend();};
 
   [[nodiscard]] bool is_consistent() const;
-  void do_deliveries(Time t) {Ramp::deliver_goods(t)};
-  void do_package_passing() {PackageSender::send_package();};
-  void do_work(Time t) {Worker::do_work(t);};
+  void do_deliveries(Time t);
+  void do_work(Time t);
+  void do_package_passing();
+
 
 private:
   //void remove_receiver(NodeCollection<Node>& , ElementID);
