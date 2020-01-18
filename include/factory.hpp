@@ -59,7 +59,7 @@ class Factory {
 public:
     void add_ramp(Ramp&& r) { list_ramp.add(r); };
 
-    void remove_ramp(ElementID id) { remove_receiver(list_ramp, id); };
+    void remove_ramp(ElementID id) { list_ramp.remove_by_id(id); };
 
     NodeCollection<Ramp>::iterator find_ramp_by_id(ElementID id) { return list_ramp.find_by_id(id); };
 
@@ -107,14 +107,16 @@ public:
 
 
 private:
+
+
     template <typename Node>
     void remove_receiver(NodeCollection<Node>&, ElementID);
+
 
     NodeCollection<Worker> list_worker;
     NodeCollection<Ramp> list_ramp;
     NodeCollection<Storehouse> list_storehouse;
 };
-
 
 #endif // NET_SIMULATION_FACTORY_HPP
 

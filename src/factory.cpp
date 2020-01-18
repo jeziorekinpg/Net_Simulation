@@ -1,5 +1,6 @@
 #include "factory.hpp"
 #include <map>
+#include <iostream>
 
 
 bool Factory::is_consistent() const {
@@ -27,37 +28,39 @@ bool Factory::is_consistent() const {
 }
 
 void Factory::do_deliveries(Time t) {
-  for(auto iter = list_ramp.begin(); iter <= list_ramp.end(); iter++){
+  for(auto iter = list_ramp.begin(); iter != list_ramp.end(); iter++){
     iter->deliver_goods(t);
   }
 }
 
-
 void Factory::do_work(Time t) {
-  for(auto iter = list_worker.begin(); iter <= list_worker.end(); iter++){
+  for(auto iter = list_worker.begin(); iter != list_worker.end(); iter++){
     iter->do_work(t);
   }
 }
 
 void Factory::do_package_passing() {
-  for(auto iter = list_ramp.begin(); iter <= list_ramp.end(); iter++){
+  for(auto iter = list_ramp.begin(); iter != list_ramp.end(); iter++){
     iter->send_package();
   }
-  for(auto iter = list_worker.begin(); iter <= list_worker.end(); iter++){
+  for(auto iter = list_worker.begin(); iter != list_worker.end(); iter++){
     iter->send_package();
   }
 }
 
+
+
 template <typename Node>
 void Factory::remove_receiver(NodeCollection<Node>& removing_from, ElementID id) {
-//TODO ten glupi typ
     auto& to_remove = *(removing_from.find_by_id(id)); // w testach tak kłeczek używa tej funkcji
-    if(removing_from.find_by_id(id) != removing_from.end()) {
-        for (auto iter = list_ramp.begin(); iter <= list_ramp.end(); iter++) {
-            iter->receiver_preferences_.remove_receiver(to_remove);
-        }
-        for(auto iter = list_worker.begin(); iter <= list_worker.end(); iter++){
-            iter->receiver_preferences_.remove_receiver(to_remove);
+    if(typeid(to_remove) != typeid(Ramp&)){
+        if(removing_from.find_by_id(id) != removing_from.end()) {
+            for (auto iter = list_ramp.begin(); iter != list_ramp.end(); iter++) {
+                iter->receiver_preferences_.remove_receiver(&to_remove);
+            }
+            for(auto iter = list_worker.begin(); iter != list_worker.end(); iter++){
+                iter->receiver_preferences_.remove_receiver(&to_remove);
+            }
         }
     }
     removing_from.remove_by_id(id);
