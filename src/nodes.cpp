@@ -92,7 +92,6 @@ Ramp::Ramp(ElementID id, TimeOffset di, ReceiverPreferences&& receiver) : Packag
 Ramp::Ramp(ElementID id, TimeOffset di) : PackageSender() {
     id_ = id;
     di_ = di;
-    type_ = NodeType::RAMP;
 }
 
 void Ramp::deliver_goods(Time t) {
@@ -125,18 +124,16 @@ Worker::Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q, Re
 */
 Worker::Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q) : PackageSender(){
     id_ = id, pd_ = pd, q_ = std::move(q);
-    type_ = NodeType::WORKER;
     buffer = std::nullopt;
 }
 
 Storehouse::Storehouse(ElementID id, std::unique_ptr<IPackageStockpile> d = std::make_unique<PackageQueue>(PackageQueue(PackageQueueType::FIFO))) {
   id_ = id,
   d_ = std::move(d);
-  type_ = NodeType::STOREHOUSE;
 }
 
 Storehouse::Storehouse(ElementID id) {
     id_ = id,
     d_ = std::make_unique<PackageQueue>(PackageQueue(PackageQueueType::FIFO));
-    type_ = NodeType::STOREHOUSE;
 }
+
