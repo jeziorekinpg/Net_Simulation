@@ -16,10 +16,15 @@ enum class NodeType {
     RAMP
 };
 
+enum class ReceiverType {
+  WORKER,
+  STOREHOUSE
+};
+
 class IPackageReceiver {
 public:
     virtual void receive_package(Package &&) = 0;
-    //[[nodiscard]] virtual ReceiverType get_receiver_type() const = 0;
+    [[nodiscard]] virtual NodeType get_receiver_type() const = 0;
 
     [[nodiscard]] virtual ElementID get_id() const = 0;
 
@@ -44,7 +49,7 @@ public:
 
     void remove_receiver(IPackageReceiver *r);
 
-    const preferences_t& get_preferences() const { return preferences; }
+    [[nodiscard]] const preferences_t& get_preferences() const { return preferences; }
 
     IPackageReceiver *choose_receiver();
 
@@ -89,7 +94,7 @@ public:
 
     [[nodiscard]] IPackageStockpile::const_iterator cend() const override { return d_->cend(); }
 
-    //[[nodiscard]] ReceiverType get_receiver_type() const override { return ReceiverType::STOREHOUSE; }
+    [[nodiscard]] NodeType get_receiver_type() const override { return NodeType::STOREHOUSE; }
 
     [[nodiscard]] ElementID get_id() const override { return id_; }
 
@@ -98,7 +103,6 @@ public:
 private:
     ElementID id_;
     std::unique_ptr<IPackageStockpile> d_;
-    NodeType type_;
 };
 
 class Worker : public IPackageReceiver, public PackageSender {
@@ -122,6 +126,8 @@ public:
 
     [[nodiscard]] ElementID get_id() const override { return id_; }
 
+    [[nodiscard]] NodeType get_receiver_type() const override { return NodeType::WORKER; }
+
     void receive_package(Package &&p) override { q_->push(std::move(p)); }
 
 private:
@@ -130,7 +136,6 @@ private:
     Time st_{};
     TimeOffset pd_;
     std::unique_ptr<IPackageQueue> q_;
-    NodeType type_;
 };
 
 class Ramp : public PackageSender {
@@ -148,7 +153,6 @@ public:
 private:
     ElementID id_;
     TimeOffset di_;
-    NodeType type_;
 };
 
 #endif //NET_SIMULATION_NODES_HPP
