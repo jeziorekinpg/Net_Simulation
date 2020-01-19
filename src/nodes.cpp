@@ -104,7 +104,7 @@ void Ramp::deliver_goods(Time t) {
 
 
 void Worker::do_work(Time t) {
-    if (!buffer.has_value()) {
+    if (!buffer.has_value() && !q_->empty()) {
         buffer = q_->pop();
         st_ = t;
     }
