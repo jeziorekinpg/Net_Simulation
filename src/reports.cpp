@@ -8,7 +8,7 @@ SpecificTurnsReportNotifier::SpecificTurnsReportNotifier(std::set<Time> tset) {
 
 bool SpecificTurnsReportNotifier::should_generate_report(Time t) {
   return tset_.find(t) != tset_.end();
-};
+}
 
 IntervalReportNotifier::IntervalReportNotifier(TimeOffset toffs) {
   toffs_ = toffs;
@@ -16,4 +16,4 @@ IntervalReportNotifier::IntervalReportNotifier(TimeOffset toffs) {
 
 bool IntervalReportNotifier::should_generate_report(Time t) {
   return (t == 1) || (t % toffs_ == 1);
-};
+}
