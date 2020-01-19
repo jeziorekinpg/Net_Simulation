@@ -15,6 +15,8 @@ set(SOURCE_FILES
         src/nodes.cpp
         src/helpers.cpp
         src/factory.cpp
+        src/simulation.cpp
+        src/reports.cpp
         )
 
 
@@ -24,6 +26,7 @@ set(SOURCES_FILES_TESTS
         #test/test_nodes.cpp
         test/test_Factory.cpp
         #test/test_factory_io.cpp
+        test/test_simulate.cpp
         )
 
 add_executable(test_wezly ${SOURCE_FILES} ${SOURCES_FILES_TESTS} test/main_gtest.cpp)

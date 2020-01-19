@@ -70,7 +70,9 @@ public:
 
     void add_worker(Worker&& w) { list_worker.add(w); };
 
+
     void remove_worker(ElementID id);
+
 
     NodeCollection<Worker>::iterator find_worker_by_id(ElementID id) { return list_worker.find_by_id(id); };
 
@@ -83,7 +85,9 @@ public:
 
     void add_storehouse(Storehouse&& s) { list_storehouse.add(s); };
 
+
     void remove_storehouse(ElementID id);
+
 
     NodeCollection<Storehouse>::iterator find_storehouse_by_id(ElementID id) { return list_storehouse.find_by_id(id); };
 
