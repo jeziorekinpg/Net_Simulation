@@ -9,12 +9,7 @@ enum class NodeColor {
     VERIFIED
 };
 
-enum class ReceiverType {
-    WORKER,
-    STOREHOUSE
-};
-
-//bool has_reachable_storehouse(const PackageSender *, std::map<const PackageSender *, NodeColor> &) const;
+bool has_reachable_storehouse(const PackageSender *, std::map<const PackageSender *, NodeColor> &);
 
 template<typename Node>
 class NodeCollection {
@@ -49,7 +44,10 @@ public:
 
     void add(Node& node) { container.push_back(std::move(node)); };
 
-    void remove_by_id(ElementID id_) { container.erase(find_by_id(id_)); };
+    void remove_by_id(ElementID id_) {
+      auto i = find_by_id(id_);
+      if(i != container.end()) {container.erase(i);}
+    };
 
 private:
     container_t container;
@@ -59,7 +57,7 @@ class Factory {
 public:
     void add_ramp(Ramp&& r) { list_ramp.add(r); };
 
-    void remove_ramp(ElementID id) { list_ramp.remove_by_id(id); };
+    void remove_ramp(ElementID id);
 
     NodeCollection<Ramp>::iterator find_ramp_by_id(ElementID id) { return list_ramp.find_by_id(id); };
 
@@ -72,7 +70,7 @@ public:
 
     void add_worker(Worker&& w) { list_worker.add(w); };
 
-    void remove_worker(ElementID id) { remove_receiver(list_worker, id); };
+    void remove_worker(ElementID id);
 
     NodeCollection<Worker>::iterator find_worker_by_id(ElementID id) { return list_worker.find_by_id(id); };
 
@@ -85,7 +83,7 @@ public:
 
     void add_storehouse(Storehouse&& s) { list_storehouse.add(s); };
 
-    void remove_storehouse(ElementID id) { remove_receiver(list_worker, id); };
+    void remove_storehouse(ElementID id);
 
     NodeCollection<Storehouse>::iterator find_storehouse_by_id(ElementID id) { return list_storehouse.find_by_id(id); };
 
