@@ -134,3 +134,9 @@ Storehouse::Storehouse(ElementID id, std::unique_ptr<IPackageStockpile> d = std:
   d_ = std::move(d);
   type_ = NodeType::STOREHOUSE;
 }
+
+Storehouse::Storehouse(ElementID id) {
+    id_ = id,
+    d_ = std::make_unique<PackageQueue>(PackageQueue(PackageQueueType::FIFO));
+    type_ = NodeType::STOREHOUSE;
+}

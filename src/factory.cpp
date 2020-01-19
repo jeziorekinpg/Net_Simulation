@@ -1,6 +1,5 @@
 #include "factory.hpp"
 #include <map>
-#include <iostream>
 
 
 bool Factory::is_consistent() const {
@@ -49,10 +48,9 @@ void Factory::do_package_passing() {
 }
 
 
-
 template <typename Node>
 void Factory::remove_receiver(NodeCollection<Node>& removing_from, ElementID id) {
-    auto& to_remove = *(removing_from.find_by_id(id)); // w testach tak kłeczek używa tej funkcji
+    auto& to_remove = *(removing_from.find_by_id(id));
     if(typeid(to_remove) != typeid(Ramp&)){
         if(removing_from.find_by_id(id) != removing_from.end()) {
             for (auto iter = list_ramp.begin(); iter != list_ramp.end(); iter++) {
@@ -65,3 +63,7 @@ void Factory::remove_receiver(NodeCollection<Node>& removing_from, ElementID id)
     }
     removing_from.remove_by_id(id);
 }
+
+template class NodeCollection<Ramp>;
+template class NodeCollection<Worker>;
+template class NodeCollection<Storehouse>;

@@ -79,6 +79,7 @@ private:
 class Storehouse : public IPackageReceiver {
 public:
     Storehouse(ElementID id, std::unique_ptr<IPackageStockpile> d);
+    Storehouse(ElementID id);
 
     [[nodiscard]] IPackageStockpile::const_iterator begin() const override { return d_->begin(); }
 
